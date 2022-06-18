@@ -1,0 +1,10 @@
+﻿@model IEnumerable<dienthoai.Models.loaisanpham>
+
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("SPTheoloaisanpham", "PHONE", new { id=item.Ma_Loai_SP})" class="list-group-item">@item.Ten_Loai_SP</a>
+    }
+</div>
+    
+

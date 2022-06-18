@@ -1,0 +1,37 @@
+﻿@model IEnumerable<dienthoai.Models.sanpham>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+<h3 style="text-align:center; color:red">Sản Phẩm </h3>
+@foreach(var sanpham in Model)
+            {
+               <div class="col-sm-4 col-lg-4 col-md-4">
+                   <div class="thumbnail">
+                    <a href="@Url.Action("Details","dienthoai", new {id = sanpham.Ma_SP})">
+                        <img alt="@sanpham.Ten_SP" src="~/Content/images/@sanpham.Hinh_Anh"/>
+                        <div>
+                            <br />
+                            <h4 style="text-align:center">
+                                @sanpham.Ten_SP
+                            </h4>
+                            <p></p>
+                            </div>
+                        <div class="ratings">
+                            <p class="pull-right">15 Review</p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </p>
+                        </div>
+                    </a>
+                       </div>
+                   </div>
+                
+            }
+

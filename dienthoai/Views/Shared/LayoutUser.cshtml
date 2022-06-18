@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HostPay 3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/loopedslider.min.js"></script>
+    <script src="~/Scripts/js/easySlider1.7.js"></script>
+    <script src="~/Scripts/js/loopedslider.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.intellisense.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!-- START PAGE SOURCE -->
+    <div id="header">
+        <div class="inner">
+            <img src="~/Content/images/logo-dien-thoai(32).jpg" class="logo" alt="" />
+
+
+            <div id="topinfo">
+                <p class="right"><img src="~/Content/images/icon_head_cp.png" alt="" /><a href="#">Control Panel</a></p>
+
+
+                <p class="left"><img src="~/Content/images/icon_head_phone.png" alt="" /><span class="grey">Điện thoại hỗ trợ:</span> 0932793275</p>
+            </div>
+            <ul>
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="hosting.html">Hosting</a></li>
+                <li><a href="content.html">Domains</a></li>
+                
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="mid">
+        <div class="inner">
+            <div id="leftmid">
+                <form action="#">
+                    <input type="text" class="domsearchbox" value="Domain name search..." onclick="this.value=''" />
+                    <input type="image" src="~/Content/images/btn_search_bg.png" value="submit" class="domsearch" />
+                </form>
+            </div>
+            <div id="rightmid">
+                <p class="right"><strong>Tìm kiếm sản phẩm</strong></p>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="inner">
+        <div id="loopedSlider">
+            <a onclick="prev()" href="#"><img src="~/Content/images/slide_previous.png" class="previous left slidebtn" alt="" /></a>
+           
+            <div class="container" style="width:500px; margin: 0 5px ; padding:0;">
+                <div><img  id="slider"src="/Content/images/Bai_KM_banner-01-resized.png"  width="500" height="225" alt="" /></div>
+                
+                
+            </div>
+            <a onclick="next()" href="#"><img src="~/Content/images/slide_next.png" class="next right slidebtn" alt="" /></a>
+            
+
+        </div>
+        <ul id="fpfeat">
+            <li>
+                <img src="~/Content/images/fp_support.png" alt="" />
+                <h4>24/24 HỖ TRỢ KHÁCH HÀNG</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh </p>
+                <p><a href="#">Support</a> is <span class="online">online now</span></p>
+            </li>
+            <li>
+                <img src="~/Content/images/fp_extend.png" alt="" />
+                <h4>Đảm bảo chất lượng</h4>
+                <p>Cửa hàng chúng tôi luôn luôn đem đến những sản phẩm tốt và chất lượng cho mọi người</p>
+                <p><a href="#">Gía rẻ-Chất lượng-</a></p>
+            </li>
+        </ul>
+        <div class="col-md-3">
+            <p class="lead"> Loại Sản Phẩm</p>
+            @Html.Action("loaisanpham", "PHONE")
+            @Html.Action("nhacungcap","PHONE")
+        </div>
+       
+       
+            <div>
+                @RenderBody()
+            </div>
+            
+        <div class="oneclick">
+            <img src="images/fp_1clicks.png" alt="" />
+            <h4>THẾ GIỚI ĐIỆN THOẠI ONLINE!</h4>
+            <p>LUÔN MANG ĐẾN CHO BẠN CẢM GIÁC TUYỆT VỜI NHẤT VÀ NHỮNG THỜI GIAN GIẢI TRÍ TUYỆT VỜI NHẤT.</p>
+            <p><a href="#">HÃY TIN TƯỞNG VÀ LUN ỦNG HỘ CHÚNG TÔI.</a></p>
+        </div>
+    </div>
+    <div id="payments">
+        <div class="inner">
+            <img src="~/Content/images/payments.png" alt="" class="right" />
+            <p>Purchase safely online with us</p>
+        </div>
+        
+    </div>
+    <div id="footer">
+        <div class="inner">
+            <p class="lf">Copyright &copy; 2011 <a href="#">HostPay 3</a> - All Rights Reserved</p>
+            <p class="rf"><a href="http://all-free-download.com/free-website-templates/">Free CSS Templates</a> by <a href="http://www.heartinternet.co.uk/">Reseller Hosting</a></p>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+        $(function () {
+            $.fn.loopedSlider.defaults.addPagination = true;
+            $('#loopedSlider').loopedSlider();
+        });
+        var images = [
+            "/Content/images/Bai_KM_banner-01-resized.png",
+
+            "/Content/images/iphone-xs-max-lua-chon-so-1-ve-pin-khoe-man-hinh-lon-cau-hinh-manh1_2c5342a3f5de4d2d8950d27d071f2ba3_grande.jpg" 
+            
+        ];
+        var num = 0;
+
+        function next() {
+            var slider = document.getElementById("slider");
+            num++;
+            if (num >= images.length) {
+                num = 0;
+            }
+            slider.src = images[num];
+        }
+
+        function prev() {
+            var slider = document.getElementById("slider");
+            num--;
+            if (num < 0) {
+                num = images.length - 1;
+            }
+            slider.src = images[num];
+        }
+
+    </script>
+    <!-- END PAGE SOURCE -->
+    <div align=center>This template  downloaded form <a href='http://all-free-download.com/free-website-templates/'>free website templates</a></div>
+</body>
+</html>

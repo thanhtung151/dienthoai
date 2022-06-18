@@ -1,0 +1,8 @@
+﻿@model IEnumerable<dienthoai.Models.nhacungcap>
+    <p class="lead"> Nhà Cung Cấp </p>
+<div class="list-group">
+    @foreach(var item in Model)
+            {
+    <a href="#" class="list-group-item">@item.Ten_NCC</a>
+            }
+</div>
