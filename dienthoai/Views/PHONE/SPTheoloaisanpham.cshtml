@@ -1,23 +1,24 @@
 ﻿@model IEnumerable<dienthoai.Models.sanpham>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
 <h3 style="text-align:center; color:red">Sản Phẩm Theo Loại</h3>
-<div class="row">
+@*<div class="row">
     @foreach (var sanpham in Model)
     {
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-                <a href="@Url.Action("Details","dienthoai", new {id = sanpham.Ma_SP})">
-                    <img alt="@sanpham.Ten_SP" src="~/Content/images/@sanpham.Hinh_Anh" />
+                <a href="@Url.Action("Details","PHONE", new {id = sanpham.Ma_SP})">
+                    <img alt="@sanpham.Ten_SP" src="~/Content/image/@sanpham.Hinh_Anh" width="140" />
                     <div>
                         <br />
                         <h4 style="text-align:center">
                             @sanpham.Ten_SP
                         </h4>
                         <p></p>
-                        </div>
+                    </div>
                     <div class="ratings">
                         <p class="pull-right">15 review</p>
                         <p>
@@ -25,12 +26,53 @@
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
+
                         </p>
-                        </div>
-                        </a>
-                </div>
+                    </div>
+                </a>
             </div>
-      }
- </div>
+        </div>
+    }*@
+<div class="pro-container">
+    @foreach (var sanpham in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details","PHONE", new {id = sanpham.Ma_SP})">
+
+                    <img alt="@sanpham.Ten_SP" src="~/Content/image/@sanpham.Hinh_Anh" width="140" />
+                    <div>
+                        <br />
+                        <h4 style="text-align:center">
+                            @sanpham.Ten_SP
+                        </h4>
+                        <p></p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">15 review</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+
+                        </p>
+                    </div>
+
+                </a>
+
+            </div>
+        </div>
+
+    }
+</div>
+<style>
+    .pro-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+</style>
+    
+
+

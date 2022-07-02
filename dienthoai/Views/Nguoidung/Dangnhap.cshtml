@@ -4,33 +4,57 @@
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
 
-<h4 style="color:red; text-align:center">@ViewBag.Thongbao </h4>
-<table align="center">
-    <h3 style="text-align:center">ĐĂNG NHẬP</h3>
-    @using (Html.BeginForm())
-            {
-                @Html.ValidationSummary(true)
-        <tr style="height:40px">
-            <td> tên đăng nhập</td>
-            <td>
-                @Html.TextBox("TenDN")
+   
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Forms</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="~/Content/login/style.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <div class="form-top-left">
+        <h4 style="text-align:center">ĐĂNG NHẬP  </h4>
+        <p style="text-align:center"> VUI LÒNG NHẬP TÊN VÀ PASSWORD:</p>
+
+    </div>
+    <div class="waper">
+        <div class="head">ĐĂNG NHẬP </div>
+
+
+        @using (Html.BeginForm())
+        {
+            <h4 style="color:red; text-align:center">@ViewBag.Thongbao </h4>
+            @Html.ValidationSummary(true)
+            <div class="foc">
+
+
+                <input type="text" name="TenDN" placeholder="Username" class="form-username form-control" id="form-username">
                 @ViewData["loi1"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td align="right"> Mật Khẩu:</td>
-            <td>
-                @Html.Password("Matkhau")
+            </div>
+            <div class="foc">
+                <input type="password" name="Matkhau" @*class="form-control"*@ placeholder="Password" @*autocomplete="off"*@ class="form-password form-control" id="form-password">
                 @ViewData["loi2"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td></td>
-            <td>
-                <input type="submit" value="Đăng Nhập" />
-            </td>
-        </tr>
-            }
-</table>
+            </div>
+            <div class="foc">
+                <button class="btn btn-block"> dang nhap </button>
+
+
+            </div>
+        }
+
+
+    </div>
+</body>
+</html>
 
 

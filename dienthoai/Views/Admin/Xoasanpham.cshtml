@@ -1,0 +1,73 @@
+﻿@model dienthoai.Models.sanpham
+
+@{
+    ViewBag.Title = "Xoasanpham";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>XÁC NHẬN TIN SẢN PHẨM CẦN XÓA</h2>
+
+<h3>BẠN QUYẾT ĐỊNH XÓA SẢN PHẨM NÀY</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            TÊN SẢN PHẨM
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten_SP)
+        </dd>
+
+        <dt>
+           LOẠI SẢN PHẨM
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ma_Loai_SP)
+        </dd>
+
+        <dt>
+            ĐƠN GIÁ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Don_Gia)
+        </dd>
+
+        <dt>
+            <img src="~/Content/image/@Model.Hinh_Anh" width="100px" />
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hinh_Anh)
+        </dd>
+
+        <dt>
+            CẤU HINH
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cau_Hinh)
+        </dd>
+
+        <dt>
+            SỐ LƯỢNG
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluong)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Về", "Index")
+        </div>
+    }
+</div>

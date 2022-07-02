@@ -1,37 +1,72 @@
-﻿@model IEnumerable<dienthoai.Models.sanpham>
+﻿@*@model IEnumerable<dienthoai.Models.sanpham>*@
+@using dienthoai.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<sanpham>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
 
-<h3 style="text-align:center; color:red">Sản Phẩm </h3>
-@foreach(var sanpham in Model)
-            {
-               <div class="col-sm-4 col-lg-4 col-md-4">
-                   <div class="thumbnail">
-                    <a href="@Url.Action("Details","dienthoai", new {id = sanpham.Ma_SP})">
-                        <img alt="@sanpham.Ten_SP" src="~/Content/images/@sanpham.Hinh_Anh"/>
-                        <div>
-                            <br />
-                            <h4 style="text-align:center">
-                                @sanpham.Ten_SP
-                            </h4>
-                            <p></p>
-                            </div>
-                        <div class="ratings">
-                            <p class="pull-right">15 Review</p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
-                        </div>
-                    </a>
-                       </div>
-                   </div>
-                
-            }
+<h3 style="text-align:center; color:cornflowerblue">Sản Phẩm </h3>
+@using (Html.BeginForm("Index", "PHONE", FormMethod.Get, new { @class = "form-inline" }))
+{
+    <div class="form-group form-inline" style="display: flex;">
+        <input type="Text" class="form-control col-md-10" value="@ViewBag.Keyword"
+               name="searchString" placeholder="Nhập tên sản phẩm cần tìm">
 
+        <input type="submit" class="btn btn-info" value="Tìm sản phẩm" style="margin-left: 10px; background-color: #000">
+
+    </div>
+    <br>
+}
+<div class="pro-container">
+    @foreach (var sanpham in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details","PHONE", new {id = sanpham.Ma_SP})">
+
+                    <div class="img"> <img alt="@sanpham.Ten_SP" src="~/Content/image/@sanpham.Hinh_Anh" width="150" /></div>
+                    <div>
+                        <br />
+                        <h4 style="text-align:center">
+                            @sanpham.Ten_SP
+                        </h4>
+                        <p></p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">15 review</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+
+                        </p>
+                    </div>
+
+                </a>
+
+            </div>
+        </div>
+
+    }
+</div>
+<style>
+    .pro-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+</style>
+@*// tao lien ket cac trang*@
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount;
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page = Page }))
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>

@@ -1,0 +1,67 @@
+﻿@model dienthoai.Models.sanpham
+
+@{
+    ViewBag.Title = "chitietsanpham";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT SẢN PHẨM</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            TÊN SẢN PHẨM:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten_SP)
+        </dd>
+
+        <dt>
+            LOẠI SẢN PHẨM
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ma_Loai_SP)
+        </dd>
+
+        <dt>
+           ĐƠN GIÁ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Don_Gia)
+        </dd>
+
+        <dt>
+            HÌNH ẢNH:
+        </dt>
+
+        <dd>
+            <img src="~/Content/image/@Model.Hinh_Anh" width="100px" />
+        </dd>
+
+        <dt>
+           CẤU HÌNH
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cau_Hinh)
+        </dd>
+
+        <dt>
+           SỐ LƯỢNG
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ĐIỀU CHỈNH", "Suasanpham", new { id = Model.Ma_SP }) |
+    @Html.ActionLink("TRỞ VỀ", "sanpham")
+</p>

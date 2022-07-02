@@ -1,0 +1,96 @@
+﻿
+@using dienthoai.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<dienthoai.Models.sanpham>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)
+    }
+}
+@{
+    ViewBag.Title = "sanpham";
+    Layout = "~/Views/Shared/LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ THÔNG TIN SẢN PHẨM</h2>
+
+<p>
+    @Html.ActionLink("THÊM MỚI", "Themmoisanpham")
+</p>
+<table class="table">
+    <tr>
+        <th width="250">
+            TÊN SẢN PHẨM
+        </th>
+        <th width="400">
+            LOẠI SẢN PHẨM
+        </th>
+        <th width="100">
+            ĐƠN GIÁ
+        </th>
+        <th width="200">
+            HÌNH ẢNH
+        </th>
+        <th width="100">
+            CẤU HÌNH
+        </th>
+
+        <th width="100">
+            SỐ LƯỢNG
+        </th>
+
+        <th width="350"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ten_SP)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ma_Loai_SP)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Don_Gia)
+    </td>
+
+
+    <td>
+        <img width="100" src="~/Content/image/@item.Hinh_Anh" />
+    </td>
+
+    <td>
+        @Truncate(item.Cau_Hinh, 100)
+    </td>
+    
+    <td>
+        @Html.DisplayFor(modelItem => item.soluong)
+    </td>
+    <td>
+        @Html.ActionLink("Sửa", "Suasanpham", new { id = item.Ma_SP }) |
+        @Html.ActionLink("Chi tiết", "chitietsanpham", new { id = item.Ma_SP }) |
+        @Html.ActionLink("Xóa", "Xoasanpham", new { id = item.Ma_SP })
+    </td>
+</tr>
+    }
+
+</table>
+@*// tao lien ket cac trang*@
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount;
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, Page => Url.Action("sanpham", new { Page = Page }))
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+

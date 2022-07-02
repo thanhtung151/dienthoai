@@ -97,8 +97,10 @@ namespace dienthoai.Controllers
                 KhachHang khachHang = data.KhachHangs.SingleOrDefault(n => n.Ten_DangNhapKH == tendn && n.Matkhau == matkhau);
                 if (khachHang != null)
                 {
-                    ViewBag.Thongbao = "Đăng nhập thành công";
+                    //ViewBag.Thongbao = "Đăng nhập thành công";
                     Session["Ten_dangnhapKH"] = khachHang;
+                    return RedirectToAction("Index", "PHONE");
+
                 }
                 else
                     ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";

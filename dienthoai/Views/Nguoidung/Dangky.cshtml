@@ -1,71 +1,146 @@
-﻿
+﻿@*@{
+        ViewBag.Title = "Dangky";
+        Layout = "~/Views/Shared/LayoutUser.cshtml";
+    }
+    <table align="center">
+        <h2 style="text-align:center">ĐĂNG KÝ TÀI KHOẢN </h2>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <tr style="height:40px">
+                <td> HỌ TÊN KHÁCH HÀNG:</td>
+                <td>
+                    @Html.TextBox("HotenKH")
+                    @ViewData["Loi1"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td> TÊN ĐĂNG NHẬP:</td>
+                <td>
+                    @Html.TextBox("TenDN")
+                    @ViewData["Loi2"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td> MẬT KHẨU ĐĂNG NHẬP:</td>
+                <td>
+                    @Html.Password("Matkhau")
+                    @ViewData["Loi3"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td> NHẬP LAI MẬT KHẨU:</td>
+                <td>
+                    @Html.Password("Nhaplaimatkhau")
+                    @ViewData["Loi4"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td> ĐỊA CHỈ:</td>
+                <td>
+                    @Html.TextBox("Diachi")
+                    @ViewData["Loi7"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td> EMAIL:</td>
+                <td>
+                    @Html.TextBox("Email")
+                    @ViewData["Loi5"]
+                </td>
+            </tr>
+            <tr style="height:40px">
+                <td> ĐIỆN THOẠI:</td>
+                <td>
+                    @Html.TextBox("Dienthoai")
+                    @ViewData["Loi6"]
+                </td>
+            </tr>
+
+            <tr style="height:40px">
+                <td></td>
+                <td>
+                    <input type="submit" value="ĐĂNG KÝ" />
+                </td>
+            </tr>
+
+        }
+    </table>*@
 @{
-    ViewBag.Title = "Dangky";
+    ViewBag.Title = "Dangnhap";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
-<table align="center">
-    <h2 style="text-align:center">ĐĂNG KÝ TÀI KHOẢN</h2>
-    @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary(true)
-        <tr style="height:40px">
-            <td> HỌ TÊN KHÁCH HÀNG:</td>
-            <td>
-                @Html.TextBox("HotenKH")
-                @ViewData["Loi1"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> TÊN ĐĂNG NHẬP:</td>
-            <td>
-                @Html.TextBox("TenDN")
-                @ViewData["Loi2"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> MẬT KHẨU ĐĂNG NHẬP:</td>
-            <td>
-                @Html.Password("Matkhau")
-                @ViewData["Loi3"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> NHẬP LAI MẬT KHẨU:</td>
-            <td>
-                @Html.Password("Nhaplaimatkhau")
-                @ViewData["Loi4"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> ĐỊA CHỈ:</td>
-            <td>
-                @Html.TextBox("Diachi")
-                @ViewData["Loi5"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> EMAIL:</td>
-            <td>
-                @Html.TextBox("Email")
-                @ViewData["Loi6"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> ĐIỆN THOẠI:</td>
-            <td>
-                @Html.TextBox("Dienthoai")
-                @ViewData["Loi7"]
-            </td>
-        </tr>
 
-        <tr style="height:40px">
-            <td></td>
-            <td>
-                <input type="submit" value="ĐĂNG KÝ" />
-            </td>
-        </tr>
 
-    }
-</table>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Forms</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="~/Content/login/style.css" rel="stylesheet" />
+</head>
+
+
+<body>
+    <div class="form-top-left">
+       
+
+    </div>
+    <div class="waper">
+        <div class="head">ĐĂNG KÝ </div>
+
+
+        @using (Html.BeginForm())
+        {
+            <h4 style="color:red; text-align:center">@ViewBag.Thongbao </h4>
+            @Html.ValidationSummary(true)
+            <div class="foc">
+
+                <input type="text" name="HotenKH" placeholder="HỌ TÊN" class="form-HotenKH form-control" id="form-HotenKH">
+                @ViewData["loi1"]
+            </div>
+            <div class="foc">
+                <input type="text" name="TenDN" placeholder="Tên Đăng Nhập" class="form-username form-control" id="form-username">
+                @ViewData["loi2"]
+            </div>
+            <div class="foc">
+                <input type="password" name="Matkhau" placeholder="Mật Khẩu" class="form-password form-control" id="form-password">
+                @ViewData["loi3"]
+            </div>
+            <div class="foc">
+                <input type="password" name="Nhaplaimatkhau" placeholder="Nhập Lại Mật Khẩu" class="form-password form-control" id="form-password">
+                @ViewData["loi4"]
+            </div>
+            <div class="foc">
+                <input type="text" name="Email" placeholder="Email" class="form-password form-control" id="form-password">
+                @ViewData["loi5"]
+            </div>
+            <div class="foc">
+                <input type="text" name="Dienthoai" placeholder=" Số Điện Thoại" class="form-password form-control" id="form-password">
+                @ViewData["loi6"]
+            </div>
+            <div class="foc">
+                <input type="text" name="Diachi" placeholder=" Địa Chỉ" class="form-password form-control" id="form-password">
+                @ViewData["loi7"]
+            </div>
+            <div class="foc">
+                <button class="btn btn-block"> Đăng Ký </button>
+
+
+            </div>
+        }
+
+
+    </div>
+</body>
+</html>
+
 
 

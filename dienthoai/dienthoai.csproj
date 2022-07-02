@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>4.3</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +48,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
@@ -169,6 +177,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GiohangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NguoidungController.cs" />
@@ -182,6 +192,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Dbqldienthoai.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -192,62 +203,69 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\images\12 pro max.jpg" />
-    <Content Include="Content\images\Bai_KM_banner-01-resized.png" />
-    <Content Include="Content\images\bg_btn_bronze.png" />
-    <Content Include="Content\images\bg_btn_gold.png" />
-    <Content Include="Content\images\bg_btn_silver.png" />
-    <Content Include="Content\images\bg_domsearch.png" />
-    <Content Include="Content\images\bg_footer.png" />
-    <Content Include="Content\images\bg_header.png" />
-    <Content Include="Content\images\bg_input_sml.png" />
-    <Content Include="Content\images\bg_mid.png" />
-    <Content Include="Content\images\bg_mid_fade.png" />
-    <Content Include="Content\images\bg_package_bronze.png" />
-    <Content Include="Content\images\bg_package_gold.png" />
-    <Content Include="Content\images\bg_package_silver.png" />
-    <Content Include="Content\images\bg_pagination.png" />
-    <Content Include="Content\images\bg_payments_footer.png" />
-    <Content Include="Content\images\bg_search.png" />
-    <Content Include="Content\images\bg_sml_fade.png" />
-    <Content Include="Content\images\btn_search_bg.png" />
-    <Content Include="Content\images\fp_1clicks.png" />
-    <Content Include="Content\images\fp_extend.png" />
-    <Content Include="Content\images\fp_iphone.jpg" />
-    <Content Include="Content\images\fp_support.png" />
-    <Content Include="Content\images\fp_wbp.jpg" />
-    <Content Include="Content\images\galaxy s22+.jpg" />
-    <Content Include="Content\images\gioithieu.jpg" />
-    <Content Include="Content\images\icon_bandwidth.png" />
-    <Content Include="Content\images\icon_click.png" />
-    <Content Include="Content\images\icon_db.png" />
-    <Content Include="Content\images\icon_ftp.png" />
-    <Content Include="Content\images\icon_head_cp.png" />
-    <Content Include="Content\images\icon_head_phone.png" />
-    <Content Include="Content\images\icon_info.png" />
-    <Content Include="Content\images\icon_iphone.png" />
-    <Content Include="Content\images\icon_mailboxes.png" />
-    <Content Include="Content\images\icon_ssl.png" />
-    <Content Include="Content\images\icon_tag.png" />
-    <Content Include="Content\images\icon_webspace.png" />
-    <Content Include="Content\images\iphone 11.jpg" />
-    <Content Include="Content\images\iphone 12.jpg" />
-    <Content Include="Content\images\iphone 13pro max.jpg" />
-    <Content Include="Content\images\iphone-11-pro-halo-mobile-den.jpg" />
-    <Content Include="Content\images\iphone-x-256gb-silver-400x460.png" />
-    <Content Include="Content\images\iphone-xs-max-lua-chon-so-1-ve-pin-khoe-man-hinh-lon-cau-hinh-manh1_2c5342a3f5de4d2d8950d27d071f2ba3_grande.jpg" />
-    <Content Include="Content\images\iphone_13.jpg" />
-    <Content Include="Content\images\logo-dien-thoai%2832%29.jpg" />
-    <Content Include="Content\images\logo.png" />
-    <Content Include="Content\images\Oppo-Reno5-Pro-5G-Blue.jpg" />
-    <Content Include="Content\images\OPPO-X-2021-điện-thoại-có-màn-hình-cuộn-đầu-tiên-trên-thế-giới-màn-hình-OPPO-X.jpg" />
-    <Content Include="Content\images\payments.png" />
-    <Content Include="Content\images\ro-ri-thong-tin-gia-galaxy-fold-2.jpg" />
-    <Content Include="Content\images\samsung-galaxy-s22-184920-014940-600x600.jpg" />
-    <Content Include="Content\images\slide_next.png" />
-    <Content Include="Content\images\slide_previous.png" />
-    <Content Include="Content\images\thieu_realme_9_va_tai_nghe_thong_minh_buds_q2s_tai_thi_truong_viet_nam_a502427d632143eb97200ba706118762_grande.jpg" />
+    <Content Include="Content\image\12 pro max.jpg" />
+    <Content Include="Content\image\Bai_KM_banner-01-resized.png" />
+    <Content Include="Content\image\bg_btn_bronze.png" />
+    <Content Include="Content\image\bg_btn_gold.png" />
+    <Content Include="Content\image\bg_btn_silver.png" />
+    <Content Include="Content\image\bg_domsearch.png" />
+    <Content Include="Content\image\bg_footer.png" />
+    <Content Include="Content\image\bg_header.png" />
+    <Content Include="Content\image\bg_input_sml.png" />
+    <Content Include="Content\image\bg_mid.png" />
+    <Content Include="Content\image\bg_mid_fade.png" />
+    <Content Include="Content\image\bg_package_bronze.png" />
+    <Content Include="Content\image\bg_package_gold.png" />
+    <Content Include="Content\image\bg_package_silver.png" />
+    <Content Include="Content\image\bg_pagination.png" />
+    <Content Include="Content\image\bg_payments_footer.png" />
+    <Content Include="Content\image\bg_search.png" />
+    <Content Include="Content\image\bg_sml_fade.png" />
+    <Content Include="Content\image\btn_search_bg.png" />
+    <Content Include="Content\image\fp_1clicks.png" />
+    <Content Include="Content\image\fp_extend.png" />
+    <Content Include="Content\image\fp_iphone.jpg" />
+    <Content Include="Content\image\fp_support.png" />
+    <Content Include="Content\image\fp_wbp.jpg" />
+    <Content Include="Content\image\galaxy s22+.jpg" />
+    <Content Include="Content\image\gioithieu.jpg" />
+    <Content Include="Content\image\icon gio hang.jpg" />
+    <Content Include="Content\image\icon_bandwidth.png" />
+    <Content Include="Content\image\icon_click.png" />
+    <Content Include="Content\image\icon_db.png" />
+    <Content Include="Content\image\icon_ftp.png" />
+    <Content Include="Content\image\icon_head_cp.png" />
+    <Content Include="Content\image\icon_head_phone.png" />
+    <Content Include="Content\image\icon_info.png" />
+    <Content Include="Content\image\icon_iphone.png" />
+    <Content Include="Content\image\icon_mailboxes.png" />
+    <Content Include="Content\image\icon_ssl.png" />
+    <Content Include="Content\image\icon_tag.png" />
+    <Content Include="Content\image\icon_webspace.png" />
+    <Content Include="Content\image\iphone 11.jpg" />
+    <Content Include="Content\image\iphone 12.jpg" />
+    <Content Include="Content\image\iphone 13pro max.jpg" />
+    <Content Include="Content\image\iphone-11-pro-halo-mobile-den.jpg" />
+    <Content Include="Content\image\iphone-11-pro-max.jpg" />
+    <Content Include="Content\image\iphone-x-256gb-silver-400x460.png" />
+    <Content Include="Content\image\iphone-xs-max-lua-chon-so-1-ve-pin-khoe-man-hinh-lon-cau-hinh-manh1_2c5342a3f5de4d2d8950d27d071f2ba3_grande.jpg" />
+    <Content Include="Content\image\iphone_13.jpg" />
+    <Content Include="Content\image\logo-dien-thoai%2832%29.jpg" />
+    <Content Include="Content\image\logo.png" />
+    <Content Include="Content\image\Oppo-Reno5-Pro-5G-Blue.jpg" />
+    <Content Include="Content\image\OPPO-X-2021-điện-thoại-có-màn-hình-cuộn-đầu-tiên-trên-thế-giới-màn-hình-OPPO-X.jpg" />
+    <Content Include="Content\image\payments.png" />
+    <Content Include="Content\image\ro-ri-thong-tin-gia-galaxy-fold-2.jpg" />
+    <Content Include="Content\image\samsung-galaxy-s22-184920-014940-600x600.jpg" />
+    <Content Include="Content\image\slide_next.png" />
+    <Content Include="Content\image\slide_previous.png" />
+    <Content Include="Content\image\thieu_realme_9_va_tai_nghe_thong_minh_buds_q2s_tai_thi_truong_viet_nam_a502427d632143eb97200ba706118762_grande.jpg" />
+    <Content Include="Content\image\xiaomi 11T 5G.jpg" />
+    <Content Include="Content\image\xiaomi redmi 9a.jpg" />
+    <Content Include="Content\login\style.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\style1.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -275,6 +293,76 @@
     <Content Include="Scripts\js\easySlider1.7.js" />
     <Content Include="Scripts\js\loopedslider.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\icons\default\icons.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\jquery.tinymce.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\license.txt" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\emoticons\js\emojiimages.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\emoticons\js\emojiimages.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\emoticons\js\emojis.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\emoticons\js\emojis.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\quickbars\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\content\dark\content.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\content\default\content.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\content\document\content.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\content\writer\content.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide-dark\content.inline.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide-dark\content.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide-dark\content.mobile.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide-dark\skin.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide-dark\skin.mobile.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide-dark\skin.shadowdom.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide\content.inline.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide\content.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide\content.mobile.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide\skin.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide\skin.mobile.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide\skin.shadowdom.min.css" />
+    <Content Include="tinymce\tinymce\js\tinymce\themes\mobile\theme.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\themes\silver\theme.min.js" />
+    <Content Include="tinymce\tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="Views\Shared\index.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -318,6 +406,22 @@
     <Content Include="Views\PHONE\Details.cshtml" />
     <Content Include="Views\Nguoidung\Dangky.cshtml" />
     <Content Include="Views\Nguoidung\Dangnhap.cshtml" />
+    <Content Include="Views\Giohang\Giohang.cshtml" />
+    <Content Include="Views\Giohang\GiohangPartial.cshtml" />
+    <Content Include="Views\Giohang\DatHang.cshtml" />
+    <Content Include="Views\Giohang\Xacnhandonhang.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Shared\LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\sanpham.cshtml" />
+    <Content Include="Views\Admin\Themmoisanpham.cshtml" />
+    <Content Include="tinymce\tinymce\CHANGELOG.md" />
+    <Content Include="tinymce\tinymce\js\tinymce\langs\README.md" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
+    <Content Include="tinymce\tinymce\js\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
+    <Content Include="Views\Admin\chitietsanpham.cshtml" />
+    <Content Include="Views\Admin\Xoasanpham.cshtml" />
+    <Content Include="Views\Admin\Suasanpham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -337,12 +441,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="tinymce\tinymce\js\tinymce\tinymce.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

@@ -1,0 +1,40 @@
+
+body{
+    background-color: #dee9ff;
+}
+
+.waper{
+    max-width: 350px;
+    margin:50px auto;
+    background:#FFFFFF;
+	min-height:207px;
+}
+
+.head{
+   background-color: #5891ff;
+   padding:10px 10px 10px 10px;
+   color:#FFFFFF;
+   font:Geneva, Arial, Helvetica, sans-serif;
+   font-size:20px;
+   text-align: center;
+}
+
+.foc{
+ margin:10px 10px 10px 10px;
+}
+
+.btn{
+    margin-bottom:15px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #5791ff;
+    border: none;
+    color: white;
+   
+ 
+}
+.btn:hover{
+
+ background:#FF0000;
+
+}
